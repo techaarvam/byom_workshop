@@ -221,6 +221,8 @@ X
 
 ### Attention Math
 
+Skip the equations and go to the hand-written Q, K, V weights to get the idea behind these equations first. 
+
 N heads. Each head does:
 
 $$\operatorname{Attention}(Q,K,V)=\operatorname{softmax}\!\left(\frac{QK^{T}}{\sqrt{d_h}}+M\right)V$$
