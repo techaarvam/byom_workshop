@@ -251,6 +251,12 @@ def head(X, Wq, Wk, Wv):
 
 Q - Query. K - Key. V - Value (payload).
 
+None of these are stored anywhere. Each one is extracted from the input by a weight matrix:
+
+$$Q = X\,W_Q \qquad K = X\,W_K \qquad V = X\,W_V$$
+
+Same input `X`, three different weight matrices, three different things pulled out of each token: the question it asks, the answer it offers, and the payload it would send. That is all the weights do - `input @ weights`.
+
 First each head arrives and scores and based on the scores, ships the payload (V) as the output. We want to understand what the scores are first.
 
 Scores: every pair of words gets a score of its relevance for this head. Attention block can have many heads.
