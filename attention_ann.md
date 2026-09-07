@@ -353,11 +353,11 @@ print("Wq2\n", Wq2, "\n\nWk2\n", Wk2, "\n\nWv2\n", Wv2)
      [0. 0.]]
 
 
-### Object head: Derive Q, K, V from the weights:
+### Object head: Derive Q, K, V from the weights: Focus on Crow
 
 Crow, bits 1-8: `1 0 0 0 1 0 0 0`
 
-The payload is Crow's object attributes. Nothing else.
+The payload is Crow's object attributes.
 
 
 ```python
