@@ -373,11 +373,11 @@ print("x_Crow @ Wv1     ", crow @ Wv1, "  <- value: [can fly, can speak]")
     x_Crow @ Wv1      [1. 0.]   <- value: [can fly, can speak]
 
 
-### Multiply it out: swap-flight
+### Action head: Derive K, V from the weights: Focus on the swap-flight
 
 swap-flight, bits 1-8: `0 0 1 0 0 1 0 0`
 
-The payload is the correction. Nothing else.
+The payload is the correction.
 
 
 ```python
