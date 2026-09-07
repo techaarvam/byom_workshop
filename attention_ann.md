@@ -255,7 +255,7 @@ First each head arrives and scores and based on the scores, ships the payload (V
 
 Scores: every pair of words gets a score of its relevance for this head. Attention block can have many heads.
 
-Every word asks a question; And also the question is not the same across heads. Each head's each word can ask a different question; We have two heads in this hand-constructed example (Object Head, Verb-Action head)
+Every word asks a question; And also the question is not the same across heads. Each head's each word can ask a different question; We have two heads in this hand-constructed example (Object Head, Action Verb-Object head)
 Object head - `he-is?` asks: are you an Object?
 
 Keys answer. Every token answers.
