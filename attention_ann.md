@@ -251,9 +251,11 @@ def head(X, Wq, Wk, Wv):
 
 Q - Query. K - Key. V - Value (payload).
 
-Scores: every pair of words. (Ignore causal mask for now.)
+First each head arrives and scores and based on the scores, ships the payload (V) as the output. We want to understand what the scores are first.
 
-Each word asks; Each head asks a different question;
+Scores: every pair of words gets a score of its relevance for this head. Attention block can have many heads.
+
+Every word asks a question; And also the question is not the same across heads. Each head's each word can ask a different question; We have two heads in this hand-constructed example (Object Head, Verb-Action head)
 Object head - `he-is?` asks: are you an Object?
 
 Keys answer. Every token answers.
