@@ -353,7 +353,7 @@ print("Wq2\n", Wq2, "\n\nWk2\n", Wk2, "\n\nWv2\n", Wv2)
      [0. 0.]]
 
 
-### Multiply it out: Crow
+### Object head: Derive Q, K, V from the weights:
 
 Crow, bits 1-8: `1 0 0 0 1 0 0 0`
 
