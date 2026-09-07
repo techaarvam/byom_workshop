@@ -491,5 +491,6 @@ This notebook is part of the support files for the TechAarvam workshop
 - YouTube: <https://www.youtube.com/@TechAarvam>
 
 © TechAarvam. You are free to use, copy, modify, share and build on this
-material, including for commercial purposes. Attribution to TechAarvam is
-appreciated but not required. Provided as-is, without warranty.
+material, including for commercial purposes, **provided you credit
+TechAarvam** and link back to <https://www.techaarvam.com>. Please keep
+this notice with any copy or derivative. Provided as-is, without warranty.
