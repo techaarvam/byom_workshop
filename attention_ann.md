@@ -263,9 +263,9 @@ Object head - "Crow" replies: I am an Object.
 
 ### Object Head - weights
 
-- Row 8 -> query rides on `he-is?`
-- Row 5 -> key rides on "object?"
-- Rows 1-2 -> payload is can fly, can speak
+- Row 8 -> query `he-is?` in the object head asks - are you an object?
+- Row 5 -> key replies to this question. (i.e every token replies)
+- Rows 1-2 -> payload is can fly, can speak. (Every token can have a payload, and tokens with high-scores get to send their payload)
 
 
 ```python
