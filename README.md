@@ -36,8 +36,9 @@ These materials are free to use, share and adapt, including commercially,
 **provided you credit TechAarvam** and link back to <https://www.techaarvam.com>.
 Please keep the notice at the foot of each file with any copy or derivative.
 
-This is the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) arrangement:
-share and adapt freely, commercial use included, attribution required.
+Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — see
+[`LICENSE`](LICENSE). Share and adapt freely, commercial use included,
+attribution required.
 
 ---
 
