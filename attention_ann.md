@@ -353,7 +353,7 @@ print("Wq2\n", Wq2, "\n\nWk2\n", Wk2, "\n\nWv2\n", Wv2)
      [0. 0.]]
 
 
-### Object head: Derive K from the weights: Focus on the Crow
+### Object head: Derive K, V from the weights: Focus on the Crow
 
 Crow, bits 1-8: `1 0 0 0 1 0 0 0`
 
@@ -393,7 +393,7 @@ print("x_swap-flight @ Wv2  ", sf @ Wv2, "  <- value: [swap flight, swap speech]
     x_swap-flight @ Wv2   [1. 0.]   <- value: [swap flight, swap speech]
 
 
-### Object head: he-is? Derive Q from the weights: Focus on he-is?
+### Both heads: Derive Q from the weights: Focus on he-is?
 
 `he-is?` is the last token, so we read row 3 of the attention matrix.
 
