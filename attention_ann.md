@@ -393,7 +393,7 @@ print("x_swap-flight @ Wv2  ", sf @ Wv2, "  <- value: [swap flight, swap speech]
     x_swap-flight @ Wv2   [1. 0.]   <- value: [swap flight, swap speech]
 
 
-### he-is? collects both
+### Object head: he-is? Derive Q from the weights: Focus on he-is?
 
 `he-is?` is the last token, so we read row 3 of the attention matrix.
 
