@@ -69,7 +69,7 @@ for word, bits in word_to_attributes.items():
 
 The ANN's output - the logits (probability scores) for the next word is a correction to the input word.
 
-The input is fixed bit-encoding of 6 bits. No sentences/tokens/words yet.
+The input is fixed bit-encoding of 6 bits.
 
     Input word  - 3 bits, one-hot, or IDs (design choice)
     Correction  - 3 bits
@@ -113,7 +113,7 @@ print(apply_correction("Human", (1, 0, 0)))  # add flight
 #         loss.backward()                                   # gradient descent
 ```
 
-In the full workshop, the notebook with the full ANN implementation is available. Visit the relevant TechAarvam pages for locating them. 
+In the full workshop, the notebook with the full ANN implementation is available. Visit the relevant TechAarvam pages to locate them.
 
 ---
 ## Part 2: Attention Block
@@ -200,9 +200,9 @@ for tok, v in token_to_bitvec.items():
 
 
 ```python
-SENTENCE = ["Crow", "keep-flight", "swap-speech", "he-is?"]
+sentence = ["Crow", "keep-flight", "swap-speech", "he-is?"]
 
-X = np.stack([token_to_bitvec[t] for t in SENTENCE])
+X = np.stack([token_to_bitvec[t] for t in sentence])
 print(X.shape)
 X
 ```
@@ -413,15 +413,15 @@ print("x_swap-flight @ Wv2  ", sf @ Wv2, "  <- value: [swap flight, swap speech]
 out1, A1, Q1, K1, V1 = head(X, Wq1, Wk1, Wv1)
 out2, A2, Q2, K2, V2 = head(X, Wq2, Wk2, Wv2)
 
-q = SENTENCE.index("he-is?")
+q = sentence.index("he-is?")
 
 print("Object head - attention from he-is?")
-for tok, k, a in zip(SENTENCE, K1, A1[q]):
+for tok, k, a in zip(sentence, K1, A1[q]):
     print(f"  {tok:14} key={k}  softmax={a:.2f}")
 print("  head 1 output:", out1[q])
 
 print("\nAction head - attention from he-is?")
-for tok, k, a in zip(SENTENCE, K2, A2[q]):
+for tok, k, a in zip(sentence, K2, A2[q]):
     print(f"  {tok:14} key={k}  softmax={a:.2f}")
 print("  head 2 output:", out2[q])
 ```
