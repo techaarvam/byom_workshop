@@ -40,7 +40,7 @@ np.set_printoptions(precision=2, suppress=True)
 
 
 ```python
-ANN_VOCAB = {
+word_to_attributes = {
     "Rock":              (0, 0, 0),
     "Human":             (0, 0, 1),
     "Car":               (0, 1, 0),
@@ -51,7 +51,7 @@ ANN_VOCAB = {
     "Talking Planes":    (1, 1, 1),
 }
 
-for word, bits in ANN_VOCAB.items():
+for word, bits in word_to_attributes.items():
     print(f"{word:20} {bits}")
 ```
 
@@ -82,14 +82,14 @@ The input is fixed bit-encoding of 6 bits. No sentences/tokens/words yet.
 
 
 ```python
-BY_BITS = {bits: word for word, bits in ANN_VOCAB.items()}
+attributes_to_word = {bits: word for word, bits in word_to_attributes.items()}
 
 
 def apply_correction(word, correction):
     """Correction is 3 bits: 1 means flip that attribute."""
-    bits = ANN_VOCAB[word]
+    bits = word_to_attributes[word]
     out = tuple(b ^ c for b, c in zip(bits, correction))
-    return BY_BITS[out]
+    return attributes_to_word[out]
 
 
 print(apply_correction("Rock", (1, 0, 0)))   # add flight
@@ -163,10 +163,10 @@ So: fixed sentence structure, small defined vocabulary.
 
 
 ```python
-BITS = ["can fly", "can speak", "swap flight", "swap speech",
+bit_labels = ["can fly", "can speak", "swap flight", "swap speech",
         "object?", "flight act?", "speech act?", "question?"]
 
-VOCAB = {
+token_to_bitvec = {
     #                    fly spk swF swS  obj flA spA  q
     "Rock":             [0,  0,  0,  0,   1,  0,  0,  0],
     "Human":            [0,  1,  0,  0,   1,  0,  0,  0],
@@ -179,9 +179,9 @@ VOCAB = {
     "he-is?":           [0,  0,  0,  0,   0,  0,  0,  1],
 }
 
-VOCAB = {k: np.array(v) for k, v in VOCAB.items()}
+token_to_bitvec = {k: np.array(v) for k, v in token_to_bitvec.items()}
 
-for tok, v in VOCAB.items():
+for tok, v in token_to_bitvec.items():
     print(f"{tok:18} {v[:4]}  {v[4:]}")
 ```
 
@@ -202,7 +202,7 @@ for tok, v in VOCAB.items():
 ```python
 SENTENCE = ["Crow", "keep-flight", "swap-speech", "he-is?"]
 
-X = np.stack([VOCAB[t] for t in SENTENCE])
+X = np.stack([token_to_bitvec[t] for t in SENTENCE])
 print(X.shape)
 X
 ```
@@ -372,7 +372,7 @@ The payload is Crow's object attributes.
 
 
 ```python
-crow = VOCAB["Crow"]
+crow = token_to_bitvec["Crow"]
 
 print("x_Crow           ", crow)
 print("x_Crow @ Wk1     ", crow @ Wk1, "  <- key: I am an object")
@@ -392,7 +392,7 @@ The payload is the correction.
 
 
 ```python
-sf = VOCAB["swap-flight"]
+sf = token_to_bitvec["swap-flight"]
 
 print("x_swap-flight        ", sf)
 print("x_swap-flight @ Wk2  ", sf @ Wk2, "  <- key: I am a flight action")
@@ -458,7 +458,7 @@ final = concat @ Wo
 print("concat        ", concat)
 print("after W_O     ", final)
 print()
-for name, val in zip(BITS[:4], final):
+for name, val in zip(bit_labels[:4], final):
     print(f"  {name:12} {val:.0f}")
 ```
 
@@ -484,9 +484,9 @@ fly, speak, swap_fly, swap_speak = (int(v) for v in final.round())
 obj_in = (fly, 0, speak)                       # ANN bits: fly, wheels, speak
 correction = (swap_fly, 0, swap_speak)
 
-print("object in :", BY_BITS[obj_in])
+print("object in :", attributes_to_word[obj_in])
 print("correction:", correction)
-print("object out:", apply_correction(BY_BITS[obj_in], correction))
+print("object out:", apply_correction(attributes_to_word[obj_in], correction))
 ```
 
     object in : Crow
