@@ -9,14 +9,11 @@
 
 ▶ **[Watch the 2-minute walkthrough](https://youtu.be/a_5qWhiyEOw)** — the same example, drawn by hand.
 
-This notebook presents a hand-crafted example - that presents the intuition behind the attention block in the transformer architecture.
+This notebook presents a hand-crafted example that presents the intuition behind the attention block in the transformer architecture.
 
-Attention and FFN are the two main components. FFN is an Artificial neural network (ANN) with 1 input, 1 hidden , 1 output layers. 
+Attention and FFN are the two main components. FFN is an Artificial neural network (ANN) with 1 input, 1 hidden, and 1 output layer.
 
-So we start constructing the FFN's job by hand.
-Then show how Attention extracts what that FFN is able to use from a sentence.
-The sentences used and the vocabulary are intentionally hand designed to be simple. The attention block weights are hand-coded, instead of trained.
-The ANN(FFN) is trained. 
+So we start constructing the FFN's job by hand. Then we show how Attention extracts what the FFN can use from a sentence. The sentences used and the vocabulary are intentionally hand-designed to be simple. The attention block weights are hand-coded, instead of trained. The ANN(FFN) is trained.
 
 
 ```python
@@ -72,7 +69,7 @@ for word, bits in ANN_VOCAB.items():
 
 The ANN's output - the logits (probability scores) for the next word is a correction to the input word.
 
-The input is fixed bit-encoding of 6-bits. No sentences/tokens/words yet.
+The input is fixed bit-encoding of 6 bits. No sentences/tokens/words yet.
 
     Input word  - 3 bits, one-hot, or IDs (design choice)
     Correction  - 3 bits
