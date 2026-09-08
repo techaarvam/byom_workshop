@@ -5,6 +5,10 @@
 # Attention is simpler than you think
 ### A hand-crafted superhero transformer
 
+[![Attention is simpler than you think - watch the walkthrough](https://i.ytimg.com/vi/a_5qWhiyEOw/maxresdefault.jpg)](https://youtu.be/a_5qWhiyEOw)
+
+▶ **[Watch the 2-minute walkthrough](https://youtu.be/a_5qWhiyEOw)** — the same example, drawn by hand.
+
 This notebook presents a hand-crafted example - that presents the intuition behind the attention block in the transformer architecture.
 
 Attention and FFN are the two main components. FFN is an Artificial neural network (ANN) with 1 input, 1 hidden , 1 output layers. 
