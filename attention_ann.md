@@ -9,7 +9,7 @@
 
 ▶ **[Watch the 2-minute walkthrough](https://youtu.be/a_5qWhiyEOw)** — the same example, drawn by hand.
 
-This notebook presents a hand-crafted example that presents the intuition behind the attention block in the transformer architecture.
+This notebook presents a hand-crafted example. The goal is to understand the intuition behind the attention block in the transformer architecture.
 
 Attention and FFN are the two main components. FFN is an Artificial neural network (ANN) with 1 input, 1 hidden, and 1 output layer.
 
@@ -252,17 +252,21 @@ def head(X, Wq, Wk, Wv):
 
 Q - Query. K - Key. V - Value (payload).
 
-None of these are stored anywhere. Each one is extracted from the input by a weight matrix:
+The Q, K, V are intermediate tensors, what the model has are the corresponding weights. 
+The weight matrices transform the input in three ways to get the (Q, K, V).
 
 $$Q = X\,W_Q \qquad K = X\,W_K \qquad V = X\,W_V$$
 
-Same input `X`, three different weight matrices, three different things pulled out of each token: the question it asks, the answer it offers, and the payload it would send. That is all the weights do - `input @ weights`.
+X is the input. Its the full sentence in our example. A context length full of tokens as input. 
+The three weight matrices transform the input. The three matrices perform - three tasks. 
+The weight matrices are per-head. i.e each head can extract out different information from the tokens. 
 
-First each head arrives and scores and based on the scores, ships the payload (V) as the output. We want to understand what the scores are first.
+$W_Q$ is weights for getting the queries for this head.
+$W_K$ are the weights that transform the input tokens to keys. (keys are like answers to the queries)
+$W_V$ is the payload, if the question and the answer for a pair of tokens get a high score, the W_V helps extract the payload or values from the tokens to pass along towards the FFN (toward the concatenation operation, then the FFN).
 
-Scores: every pair of words gets a score of its relevance for this head. Attention block can have many heads.
 
-Every word asks a question; And also the question is not the same across heads. Each head's each word can ask a different question; We have two heads in this hand-constructed example (Object Head, Action Verb-Object head)
+Every word asks a question; And also the question is not the same across heads. Each word in Each head can ask a different question; We have two heads in this hand-constructed example (Object Head, Action Verb-Object head)
 Object head - `he-is?` asks: are you an Object?
 
 Keys answer. Every token answers.
