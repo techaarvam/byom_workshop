@@ -19,14 +19,15 @@ stable API — files are added and updated as the workshop material evolves.
 | :--- | :--- |
 | [`attention_ann.ipynb`](attention_ann.ipynb) | A hand-crafted transformer: attention weights written by hand, and the ANN (FFN) whose job they feed. [Open in Colab](https://colab.research.google.com/github/techaarvam/byom_workshop/blob/main/attention_ann.ipynb). |
 | [`attention_ann.md`](attention_ann.md) | The same notebook as rendered Markdown, for reading without a kernel. |
+| [`attention_ann_part2_puzzle_solution.ipynb`](attention_ann_part2_puzzle_solution.ipynb) | [Open in Colab](https://colab.research.google.com/github/techaarvam/byom_workshop/blob/main/attention_ann_part2_puzzle_solution.ipynb). |
 
 ## Running the notebook
 
-It needs only `numpy` and reads no local files, so it runs as-is in Google
-Colab with no setup. Locally:
+It reads no local files, so it runs as-is in Google Colab with no setup.
+Locally:
 
 ```bash
-pip install numpy notebook
+pip install numpy torch notebook
 jupyter notebook attention_ann.ipynb
 ```
 
