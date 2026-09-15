@@ -2,6 +2,10 @@
 
 # Introduce position embedding, residuals and layers
 
+[![Introduce position embedding, residuals and layers - watch the walkthrough](https://i.ytimg.com/vi/Hav2zlqxzUI/maxresdefault.jpg)](https://youtu.be/Hav2zlqxzUI)
+
+▶ **[Watch the 7-minute walkthrough](https://youtu.be/Hav2zlqxzUI)**
+
 
 ```python
 import torch
