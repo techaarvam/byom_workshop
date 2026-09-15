@@ -1,6 +1,6 @@
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/techaarvam/byom_workshop/blob/main/attention_ann_part2_puzzle_solution.ipynb)
 
-# Sequence dependency: `disobeys`
+# Introduce position embedding, residuals and layers
 
 
 ```python
@@ -8,6 +8,19 @@ import torch
 
 torch.set_printoptions(precision=2, sci_mode=False, linewidth=160)
 ```
+
+In this notebook we are extending the previous notebook, [attention_ann.ipynb](https://colab.research.google.com/github/techaarvam/byom_workshop/blob/main/attention_ann.ipynb), which introduced (plausibly) the world's tiniest hand-constructed transformer model. Please read the previous notebook for the context. This is the solution to the puzzle that was introduced as part of the previous notebook.
+
+
+We add one word 'disobeys' which modifies the action-attribute words (swap-speech, keep-speech, swap-flight, keep-flight). In the previous notebook the order of the words did not matter. In the current notebook, the order does matter. The word disobeys modifies only the word right after it, so word order matters.
+
+The solution adds an extra layer, and a residual connection that carries the input unmodified to the next block, so each next layer gets both the unmodified input and the modified input.
+
+The residual stream is made 22 bits, where it carries the original inputs and each layer's/head's findings. The most interesting addition is the position information. Each token carries the position where it appears.
+
+This example is constructed to illustrate the ideas. In the real implementation, we do not hand-construct in this manner. Vector embedding and position embedding are often also learned using the training loop and gradient descent. But the hand-construction allows us to see why those blocks and connections exist and how they are helpful to have.
+
+
 
 ### Residual layout
 
@@ -38,9 +51,16 @@ torch.set_printoptions(precision=2, sci_mode=False, linewidth=160)
 
 
 ```python
+# The new list of token bits, with the additional word 'disobeys'
 idx = {"fly": 0, "speak": 1, "swap_fly": 2, "swap_speak": 3,
        "object": 4, "action_fly": 5, "action_speak": 6, "question": 7, "disobey": 8}
 
+# constants used for bit-slicing and locating the portion of
+# the residual we need
+
+# L is the maximum sentence length, i.e. the number of position slots.
+# It is used to name the position slots below, and to build the
+# "Disobey Position Finder" head (Wq_P, Wk_P) in layer 1.
 position_start, L = 9, 6             # position one-hot occupies 9 .. 14
 previous_word_is_disobey = 15
 object_attribute_fly, object_attribute_speak = 16, 17
@@ -91,7 +111,7 @@ for i in range(num_bits):
 
 
 ```python
-content = {
+token_to_vector = {
     #                   fly spk swF swS  obj actF actS  q  dis
     "Rock":             [0,  0,  0,  0,   1,  0,  0,  0,  0],
     "Human":            [0,  1,  0,  0,   1,  0,  0,  0,  0],
@@ -105,7 +125,7 @@ content = {
     "he-is?":           [0,  0,  0,  0,   0,  0,  0,  1,  0],
 }
 
-for tok, bits in content.items():
+for tok, bits in token_to_vector.items():
     print(f"{tok:18} {torch.tensor(bits)}")
 ```
 
@@ -128,9 +148,9 @@ $$x_p \;=\; \underbrace{c(t_p)}_{\text{9 content bits}} \;\Vert\; \underbrace{e_
 ```python
 def embed(sentence):
     X = torch.zeros(len(sentence), num_bits)
-    for p, tok in enumerate(sentence):
-        X[p, :9] = torch.tensor(content[tok], dtype=torch.float32)
-        X[p, position_start + p] = 1
+    for current_token_position, current_token in enumerate(sentence):
+        X[current_token_position, :9] = torch.tensor(token_to_vector[current_token], dtype=torch.float32)
+        X[current_token_position, position_start + current_token_position] = 1
     return X
 
 
@@ -269,17 +289,22 @@ for tok, row in zip(sentence, X1):
 
 
 ## Layer 2
-### Head: Get Flight Attributes and Head: Get Speech Attributes
+### Two heads: Head1 - "get flight attribute" Head2 - "get speech attribute"
+
+Layer 2 has two heads: get flight attribute and get speech attribute.
+Usually layers have a similar topology, so two heads are used in both layers.
+
+Could this work be done with a single head, like the action head in the previous notebook? Not with this residual layout. In the previous notebook, one head attended to both action words, and that worked because each action word's own swap bit (`swap_fly` or `swap_speak`) says which attribute it swaps. Here, the disobey information sits in one shared slot, `previous_word_is_disobey`, on both action words. A single head attending to both action words would add the two disobey signals into the same number, and they could no longer be told apart. For example, `Crow disobeys keep-flight swap-speech he-is?` and `Crow keep-flight disobeys swap-speech he-is?` would give exactly the same head output, but the answers are Human and Crow. So we use one head for the flight word and one head for the speech word.
 
 
 ```python
-Wq_F = torch.zeros(num_bits, 1); Wq_F[idx["question"], 0] = 8
-Wk_F = torch.zeros(num_bits, 1); Wk_F[idx["action_fly"], 0] = 1
-Wv_F = torch.zeros(num_bits, 2); Wv_F[idx["swap_fly"]] = torch.tensor([1.0, 0.0]); Wv_F[previous_word_is_disobey] = torch.tensor([0.0, 1.0])
+Wq_fly_head = torch.zeros(num_bits, 1); Wq_fly_head[idx["question"], 0] = 8
+Wk_fly_head = torch.zeros(num_bits, 1); Wk_fly_head[idx["action_fly"], 0] = 1
+Wv_fly_head = torch.zeros(num_bits, 2); Wv_fly_head[idx["swap_fly"]] = torch.tensor([1.0, 0.0]); Wv_fly_head[previous_word_is_disobey] = torch.tensor([0.0, 1.0])
 
-Wq_S = torch.zeros(num_bits, 1); Wq_S[idx["question"], 0] = 8
-Wk_S = torch.zeros(num_bits, 1); Wk_S[idx["action_speak"], 0] = 1
-Wv_S = torch.zeros(num_bits, 2); Wv_S[idx["swap_speak"]] = torch.tensor([1.0, 0.0]); Wv_S[previous_word_is_disobey] = torch.tensor([0.0, 1.0])
+Wq_speak_head = torch.zeros(num_bits, 1); Wq_speak_head[idx["question"], 0] = 8
+Wk_speak_head = torch.zeros(num_bits, 1); Wk_speak_head[idx["action_speak"], 0] = 1
+Wv_speak_head = torch.zeros(num_bits, 2); Wv_speak_head[idx["swap_speak"]] = torch.tensor([1.0, 0.0]); Wv_speak_head[previous_word_is_disobey] = torch.tensor([0.0, 1.0])
 
 Wo_2 = torch.zeros(4, num_bits)
 Wo_2[0, is_swap_attr_fly]        = 1
@@ -287,15 +312,15 @@ Wo_2[1, is_attr_fly_disobeyed]   = 1
 Wo_2[2, is_swap_attr_speak]      = 1
 Wo_2[3, is_attr_speak_disobeyed] = 1
 
-print("Wv_F nonzero rows:", (Wv_F != 0).any(1).nonzero().flatten())
-print("Wv_S nonzero rows:", (Wv_S != 0).any(1).nonzero().flatten())
-print("Wo_2 nonzero cols:", (Wo_2 != 0).any(0).nonzero().flatten())
+print("Wv_fly_head nonzero rows:  ", (Wv_fly_head != 0).any(1).nonzero().flatten())
+print("Wv_speak_head nonzero rows:", (Wv_speak_head != 0).any(1).nonzero().flatten())
+print("Wo_2 nonzero cols:         ", (Wo_2 != 0).any(0).nonzero().flatten())
 ```
 
 
-    Wv_F nonzero rows: tensor([ 2, 15])
-    Wv_S nonzero rows: tensor([ 3, 15])
-    Wo_2 nonzero cols: tensor([18, 19, 20, 21])
+    Wv_fly_head nonzero rows:   tensor([ 2, 15])
+    Wv_speak_head nonzero rows: tensor([ 3, 15])
+    Wo_2 nonzero cols:          tensor([18, 19, 20, 21])
 
 
 $$X_2 = X_1 + \big[\operatorname{head}_F(X_1)\;\Vert\;\operatorname{head}_S(X_1)\big]\,W_O^{(2)}$$
@@ -303,8 +328,8 @@ $$X_2 = X_1 + \big[\operatorname{head}_F(X_1)\;\Vert\;\operatorname{head}_S(X_1)
 
 ```python
 def layer2_attn(X1):
-    oF, AF = head(X1, Wq_F, Wk_F, Wv_F)
-    oS, AS = head(X1, Wq_S, Wk_S, Wv_S)
+    oF, AF = head(X1, Wq_fly_head, Wk_fly_head, Wv_fly_head)
+    oS, AS = head(X1, Wq_speak_head, Wk_speak_head, Wv_speak_head)
     X2 = X1 + torch.cat([oF, oS], dim=1) @ Wo_2
     return X2, AF, AS
 
@@ -332,6 +357,10 @@ print("is_attr_speak_disobeyed", X2[q, is_attr_speak_disobeyed])
 
 
 ### FFN 2
+
+The FFN is shown for completeness, also as a hand-constructed implementation. But for understanding the ideas of attention, position embedding, residuals and the need for layers, this part can be skipped.
+
+Summary: bias values are used carefully to allow distinguishing 0, 1, 2, 3. This provides different ReLU activation levels corresponding to the number of flips. This FFN is a parity finder, while the FFN used in the previous notebook without the disobeys word was an XOR gate. Repeating the note that, in the real implementation, all the weights and biases are learned using gradient descent and the backpropagation algorithm.
 
 $$s_{\text{fly}} = x_{\text{object\_attribute\_fly}} + x_{\text{is\_swap\_attr\_fly}} + x_{\text{is\_attr\_fly\_disobeyed}}
 \qquad
