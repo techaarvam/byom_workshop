@@ -67,7 +67,7 @@ for word, bits in word_to_attributes.items():
 
 ### ANN's learning goal
 
-The ANN's output - the logits (probability scores) for the next word is a correction to the input word.
+The ANN's output - the logits (raw scores; softmax turns them into probabilities) for the next word is a correction to the input word.
 
 The input is fixed bit-encoding of 6 bits.
 
