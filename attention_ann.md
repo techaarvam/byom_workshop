@@ -583,6 +583,8 @@ print("object out:", apply_correction(attributes_to_word[obj_in], correction))
     object out: Flying Superhero
 
 
+**Continue to Part 2:** [Introduce position embedding, residuals and layers](https://colab.research.google.com/github/techaarvam/byom_workshop/blob/main/attention_ann_part2_puzzle_solution.ipynb)
+
 ---
 
 <img src="https://raw.githubusercontent.com/techaarvam/byom_workshop/main/assets/techaarvam_logo.png" alt="Tech Aarvam - Dream Build Inspire" width="140">
