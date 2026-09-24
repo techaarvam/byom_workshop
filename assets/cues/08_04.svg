@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="371" height="72" viewBox="0 0 371 72" role="img" aria-label="Tokens to vectors">
+  <title>Tokens to vectors</title>
+  <rect x="1" y="1" width="369" height="70" rx="35" fill="#eef4fb" stroke="#2563a8" stroke-width="2"/>
+  <circle cx="36" cy="36" r="27" fill="#2563a8"/>
+  <g transform="translate(12 12)"><rect fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" x="8" y="17" width="9" height="14" rx="2"/><rect fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" x="20" y="17" width="9" height="14" rx="2"/><rect x="32" y="17" width="9" height="14" rx="2" fill="#fff"/></g>
+  <text x="80" y="45" font-family="system-ui, sans-serif" font-size="27" font-weight="700" fill="#17243a">Tokens to vectors</text>
+</svg>

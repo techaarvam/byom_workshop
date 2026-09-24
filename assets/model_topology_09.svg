@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="360" viewBox="0 0 1240 360" role="img" aria-labelledby="title desc">
+  <title id="title">2 Layer model (word order matters)</title>
+  <desc id="desc">The embedded sentence goes to layer 1, where two attention heads, the object head and the disobey position finder, sit in one column; their outputs are added to the input and go to FFN 1, which is empty here. The layer output goes to layer 2, where the flight head and the speech head sit in one column, then FFN 2, the parity finder. Green residual paths skip around each part. The answer is read at he-is?.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#2563a8"/></marker>
+    <marker id="arrow-res" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#1f7a4d"/></marker>
+    <style>.title{font:700 28px system-ui,sans-serif;fill:#17243a}.bt{font:700 19px system-ui,sans-serif;fill:#17243a}.small{font:16px system-ui,sans-serif;fill:#35445a}.grey{font:16px system-ui,sans-serif;fill:#94a3b8}.res{font:600 15px system-ui,sans-serif;fill:#1f7a4d}</style>
+  </defs>
+  <rect width="1240" height="360" rx="24" fill="#f8fafc"/>
+  <text x="620.0" y="44" text-anchor="middle" class="title">2 Layer model (word order matters)</text>
+  <rect x="20" y="155" width="115" height="60" rx="30" fill="#fff" stroke="#64748b" stroke-width="3"/>
+  <text x="77" y="181" text-anchor="middle" class="bt">embedded</text><text x="77" y="202" text-anchor="middle" class="small">sentence</text>
+  <path d="M137 185 L150 185" stroke="#2563a8" stroke-width="3"/>
+  <rect x="158" y="70" width="450" height="265" rx="16" fill="none" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="7 5"/>
+  <text x="383" y="95" text-anchor="middle" class="bt">Layer 1</text>
+  <rect x="193" y="115" width="185" height="50" rx="10" fill="#DCEBFA" stroke="#2563a8" stroke-width="2"/>
+  <text x="285.5" y="146" text-anchor="middle" class="small">object head</text>
+  <path d="M150 185 L189 140" stroke="#2563a8" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <path d="M380 140 L399 185" stroke="#2563a8" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <rect x="193" y="205" width="185" height="50" rx="10" fill="#DCEBFA" stroke="#2563a8" stroke-width="2"/>
+  <text x="285.5" y="236" text-anchor="middle" class="small">disobey position finder</text>
+  <path d="M150 185 L189 230" stroke="#2563a8" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <path d="M380 230 L399 185" stroke="#2563a8" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <circle cx="413" cy="185" r="13" fill="#fff" stroke="#1f7a4d" stroke-width="3"/>
+  <text x="413" y="191" text-anchor="middle" class="bt" fill="#1f7a4d">+</text>
+  <path d="M426 185 L444 185" stroke="#2563a8" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="448" y="160" width="110" height="50" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+  <text x="503.0" y="191" text-anchor="middle" class="grey">FFN 1</text>
+  <text x="503.0" y="230" text-anchor="middle" class="grey">empty here</text>
+  <path d="M560 185 L573 185" stroke="#2563a8" stroke-width="3" marker-end="url(#arrow)"/>
+  <circle cx="588" cy="185" r="13" fill="#fff" stroke="#1f7a4d" stroke-width="3"/>
+  <text x="588" y="191" text-anchor="middle" class="bt" fill="#1f7a4d">+</text>
+  <path d="M150 185 C150 330, 413 330, 413 200" fill="none" stroke="#1f7a4d" stroke-width="2.5" marker-end="url(#arrow-res)"/>
+  <path d="M413 198 C423 300, 588 300, 588 200" fill="none" stroke="#1f7a4d" stroke-width="2.5" marker-end="url(#arrow-res)"/>
+  <path d="M601 185 L640 185" stroke="#2563a8" stroke-width="3"/>
+  <rect x="648" y="70" width="450" height="265" rx="16" fill="none" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="7 5"/>
+  <text x="873" y="95" text-anchor="middle" class="bt">Layer 2</text>
+  <rect x="683" y="115" width="185" height="50" rx="10" fill="#DCEBFA" stroke="#2563a8" stroke-width="2"/>
+  <text x="775.5" y="146" text-anchor="middle" class="small">flight head</text>
+  <path d="M640 185 L679 140" stroke="#2563a8" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <path d="M870 140 L889 185" stroke="#2563a8" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <rect x="683" y="205" width="185" height="50" rx="10" fill="#DCEBFA" stroke="#2563a8" stroke-width="2"/>
+  <text x="775.5" y="236" text-anchor="middle" class="small">speech head</text>
+  <path d="M640 185 L679 230" stroke="#2563a8" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <path d="M870 230 L889 185" stroke="#2563a8" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <circle cx="903" cy="185" r="13" fill="#fff" stroke="#1f7a4d" stroke-width="3"/>
+  <text x="903" y="191" text-anchor="middle" class="bt" fill="#1f7a4d">+</text>
+  <path d="M916 185 L934 185" stroke="#2563a8" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="938" y="160" width="110" height="50" rx="10" fill="#FFEDD5" stroke="#c2410c" stroke-width="2"/>
+  <text x="993.0" y="191" text-anchor="middle" class="bt">FFN 2</text>
+  <text x="993.0" y="230" text-anchor="middle" class="small">parity finder</text>
+  <path d="M1050 185 L1063 185" stroke="#2563a8" stroke-width="3" marker-end="url(#arrow)"/>
+  <circle cx="1078" cy="185" r="13" fill="#fff" stroke="#1f7a4d" stroke-width="3"/>
+  <text x="1078" y="191" text-anchor="middle" class="bt" fill="#1f7a4d">+</text>
+  <path d="M640 185 C640 330, 903 330, 903 200" fill="none" stroke="#1f7a4d" stroke-width="2.5" marker-end="url(#arrow-res)"/>
+  <path d="M903 198 C913 300, 1078 300, 1078 200" fill="none" stroke="#1f7a4d" stroke-width="2.5" marker-end="url(#arrow-res)"/>
+  <path d="M1091 185 L1111 185" stroke="#2563a8" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="1115" y="155" width="110" height="60" rx="30" fill="#fff" stroke="#64748b" stroke-width="3"/>
+  <text x="1170" y="181" text-anchor="middle" class="bt">answer</text><text x="1170" y="202" text-anchor="middle" class="small">at he-is?</text>
+  <text x="300" y="352" class="res">green: residual path</text>
+</svg>

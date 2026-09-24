@@ -15,6 +15,20 @@ Attention and FFN are the two main components. FFN is an Artificial neural netwo
 
 So we start constructing the FFN's job by hand. Then we show how Attention extracts what the FFN can use from a sentence. The sentences used and the vocabulary are intentionally hand-designed to be simple. The attention block weights are hand-coded, instead of trained. The ANN(FFN) is trained.
 
+<img src="https://raw.githubusercontent.com/techaarvam/byom_workshop/main/assets/transformer_map_08.svg" alt="Where notebook 08 fits in the transformer" width="560">
+
+```mermaid
+flowchart LR
+    T(["input tokens"]) --> A["Attention"] --> N["ANN"] --> S(["scores"])
+
+    classDef io fill:#F1F1F1,stroke:#9E9E9E,color:#222
+    classDef attn fill:#DCEBFA,stroke:#93B4D6,color:#222
+    classDef ann fill:#D8F3DC,stroke:#8FC39A,color:#222
+    class T,S io
+    class A attn
+    class N ann
+```
+
 
 ```python
 import numpy as np
@@ -22,10 +36,12 @@ import numpy as np
 np.set_printoptions(precision=2, suppress=True)
 ```
 
----
-## Part 1: Artificial Neural Network
+<img src="https://raw.githubusercontent.com/techaarvam/byom_workshop/main/assets/cues/08_01.svg" alt="Part 1: ANN vocabulary" height="48">
 
-### Vocabulary for the ANN
+---
+## 1. Artificial Neural Network
+
+### 1.1 Vocabulary for the ANN
 
 | Word | can fly? | has wheels? | can speak? |
 | :--- | :---: | :---: | :---: |
@@ -65,17 +81,31 @@ for word, bits in word_to_attributes.items():
     Talking Planes       (1, 1, 1)
 
 
-### ANN's learning goal
+<img src="https://raw.githubusercontent.com/techaarvam/byom_workshop/main/assets/cues/08_02.svg" alt="ANN&#x27;s learning goal" height="48">
 
-The ANN's output - the logits (raw scores; softmax turns them into probabilities) for the next word is a correction to the input word.
+### 1.2 ANN's learning goal
+
+The ANN takes as input the objects attributes - 3 bits. And also takes as input 3-bits of correction.
+
+The ANN outputs scores for each token ( we have 8 possible next word tokens ) - ANN's learning goal is to give 8 scores.
+Such scores are called logits. 
+
+Softmax is a math function that can take scores and convert them into probabilities (i.e each item is 0 to 1; total = 1)
+
+
 
 The input is fixed bit-encoding of 6 bits.
 
-    Input word  - 3 bits, one-hot, or IDs (design choice)
+    Input word  - 3 bits
     Correction  - 3 bits
     Output word - attributes after the correction
 
-### Example
+Lets say rock: (attributes: speak:0, fly:0, wheels:0)
+Correction ( attributes: speak:1, fly:0, wheels: 0) . 
+   For the above example: "Human" must have the largest score. 
+
+
+### 1.3 Example
 
 1. Rock + add flight -> Plane
 2. Human + add flight -> Flying Superhero
@@ -100,7 +130,7 @@ print(apply_correction("Human", (1, 0, 0)))  # add flight
     Flying Superhero
 
 
-### Training the ANN: Pseudocode
+### 1.4 Training the ANN: Pseudocode
 
 
 ```python
@@ -115,8 +145,10 @@ print(apply_correction("Human", (1, 0, 0)))  # add flight
 
 In the full workshop, the notebook with the full ANN implementation is available. Visit the relevant TechAarvam pages to locate them.
 
+<img src="https://raw.githubusercontent.com/techaarvam/byom_workshop/main/assets/cues/08_03.svg" alt="Part 2: Attention block" height="48">
+
 ---
-## Part 2: Attention Block
+## 2. Attention Block
 
 Input is now a sentence:
 
@@ -129,7 +161,9 @@ So: fixed sentence structure, small defined vocabulary.
     Actions:       swap-flight, swap-speech, keep-flight, keep-speech
     Interrogative: he-is?
 
-### Tokens to vectors
+<img src="https://raw.githubusercontent.com/techaarvam/byom_workshop/main/assets/cues/08_04.svg" alt="Tokens to vectors" height="48">
+
+### 2.1 Tokens to vectors
 
 8-bit vectors, shown as 4 + 4.
 
@@ -196,7 +230,7 @@ for tok, v in token_to_bitvec.items():
     he-is?             [0 0 0 0]  [0 0 0 1]
 
 
-### The sentence
+### 2.2 The sentence
 
 
 ```python
@@ -220,7 +254,9 @@ X
 
 
 
-### Attention Math
+<img src="https://raw.githubusercontent.com/techaarvam/byom_workshop/main/assets/cues/08_05.svg" alt="Attention math" height="48">
+
+### 2.3 Attention Math
 
 Skip the equations and go to the hand-written Q, K, V weights to get the idea behind these equations first. 
 
@@ -248,7 +284,17 @@ def head(X, Wq, Wk, Wv):
     return A @ V, A, Q, K, V
 ```
 
-### Hand-written heads
+<img src="https://raw.githubusercontent.com/techaarvam/byom_workshop/main/assets/cues/08_11.svg" alt="Two heads at a glance" height="48">
+
+### 2.4 Two heads at a glance
+
+Each head scores every pair of words: rows ask (queries), columns answer (keys). In both heads only the `he-is?` row asks a question. The bright cells decide which words send their payload bits.
+
+<img src="https://raw.githubusercontent.com/techaarvam/byom_workshop/main/assets/attention_two_heads.svg" alt="For Crow keep-flight swap-speech he-is? and Flying superhero swap-flight keep-speech he-is?, the object head's QK-transpose grid is bright only at he-is? by the object word, and the action head's grid is bright at he-is? by the two action words. The bright cells send the object attributes and the correction: 1 0 0 1 gives Flying superhero, and 1 1 1 0 gives Human." width="900">
+
+<img src="https://raw.githubusercontent.com/techaarvam/byom_workshop/main/assets/cues/08_06.svg" alt="Hand-written heads" height="48">
+
+### 2.5 Hand-written heads
 
 Q - Query. K - Key. V - Value (payload).
 
@@ -272,7 +318,9 @@ Object head - `he-is?` asks: are you an Object?
 Keys answer. Every token answers.
 Object head - "Crow" replies: I am an Object.
 
-### Object Head - weights
+<img src="https://raw.githubusercontent.com/techaarvam/byom_workshop/main/assets/cues/08_07.svg" alt="Object head weights" height="48">
+
+### 2.6 Object Head - weights
 
 - Row 8 -> query `he-is?` in the object head asks - are you an object?
 - Row 5 -> key replies to this question. (i.e every token replies)
@@ -280,7 +328,7 @@ Object head - "Crow" replies: I am an Object.
 
 
 ```python
-Wq1 = np.zeros((8, 2)); Wq1[7] = [8, 0]
+Wq1 = np.zeros((8, 2)); Wq1[7] = [50, 0]
 Wk1 = np.zeros((8, 2)); Wk1[4] = [1, 0]
 Wv1 = np.zeros((8, 2)); Wv1[0] = [1, 0]; Wv1[1] = [0, 1]
 
@@ -288,14 +336,14 @@ print("Wq1\n", Wq1, "\n\nWk1\n", Wk1, "\n\nWv1\n", Wv1)
 ```
 
     Wq1
-     [[0. 0.]
-     [0. 0.]
-     [0. 0.]
-     [0. 0.]
-     [0. 0.]
-     [0. 0.]
-     [0. 0.]
-     [8. 0.]] 
+     [[ 0.  0.]
+     [ 0.  0.]
+     [ 0.  0.]
+     [ 0.  0.]
+     [ 0.  0.]
+     [ 0.  0.]
+     [ 0.  0.]
+     [50.  0.]] 
     
     Wk1
      [[0. 0.]
@@ -318,7 +366,9 @@ print("Wq1\n", Wq1, "\n\nWk1\n", Wk1, "\n\nWv1\n", Wv1)
      [0. 0.]]
 
 
-### Action (Verb-Object) Head - weights
+<img src="https://raw.githubusercontent.com/techaarvam/byom_workshop/main/assets/cues/08_08.svg" alt="Action head weights" height="48">
+
+### 2.7 Action (Verb-Object) Head - weights
 
 - Row 8 -> `he-is?` queries both slots
 - Rows 6-7 -> keys are the two action types
@@ -326,7 +376,7 @@ print("Wq1\n", Wq1, "\n\nWk1\n", Wk1, "\n\nWv1\n", Wv1)
 
 
 ```python
-Wq2 = np.zeros((8, 2)); Wq2[7] = [8, 8]
+Wq2 = np.zeros((8, 2)); Wq2[7] = [50, 50]
 Wk2 = np.zeros((8, 2)); Wk2[5] = [1, 0]; Wk2[6] = [0, 1]
 Wv2 = np.zeros((8, 2)); Wv2[2] = [1, 0]; Wv2[3] = [0, 1]
 
@@ -334,14 +384,14 @@ print("Wq2\n", Wq2, "\n\nWk2\n", Wk2, "\n\nWv2\n", Wv2)
 ```
 
     Wq2
-     [[0. 0.]
-     [0. 0.]
-     [0. 0.]
-     [0. 0.]
-     [0. 0.]
-     [0. 0.]
-     [0. 0.]
-     [8. 8.]] 
+     [[ 0.  0.]
+     [ 0.  0.]
+     [ 0.  0.]
+     [ 0.  0.]
+     [ 0.  0.]
+     [ 0.  0.]
+     [ 0.  0.]
+     [50. 50.]] 
     
     Wk2
      [[0. 0.]
@@ -364,7 +414,7 @@ print("Wq2\n", Wq2, "\n\nWk2\n", Wk2, "\n\nWv2\n", Wv2)
      [0. 0.]]
 
 
-### Object head: Derive K, V from the weights: Focus on the Crow
+### 2.8 Object head: Derive K, V from the weights: Focus on the Crow
 
 Crow, bits 1-8: `1 0 0 0 1 0 0 0`
 
@@ -373,18 +423,24 @@ The payload is Crow's object attributes.
 
 ```python
 crow = token_to_bitvec["Crow"]
+heis = token_to_bitvec["he-is?"]
 
 print("x_Crow           ", crow)
 print("x_Crow @ Wk1     ", crow @ Wk1, "  <- key: I am an object")
 print("x_Crow @ Wv1     ", crow @ Wv1, "  <- value: [can fly, can speak]")
+
+print("x_he_is @ Wq1     ", heis @ Wq1, "  <- Are you an object?")
+
+
 ```
 
     x_Crow            [1 0 0 0 1 0 0 0]
     x_Crow @ Wk1      [1. 0.]   <- key: I am an object
     x_Crow @ Wv1      [1. 0.]   <- value: [can fly, can speak]
+    x_he_is @ Wq1      [50.  0.]   <- Are you an object?
 
 
-### Action head: Derive K, V from the weights: Focus on the swap-flight
+### 2.9 Action head: Derive K, V from the weights: Focus on the swap-flight
 
 swap-flight, bits 1-8: `0 0 1 0 0 1 0 0`
 
@@ -404,7 +460,7 @@ print("x_swap-flight @ Wv2  ", sf @ Wv2, "  <- value: [swap flight, swap speech]
     x_swap-flight @ Wv2   [1. 0.]   <- value: [swap flight, swap speech]
 
 
-### Both heads: Derive Q from the weights: Focus on he-is?
+### 2.10 Both heads: Derive Q from the weights: Focus on he-is?
 
 `he-is?` is the last token, so we read row 3 of the attention matrix.
 
@@ -427,11 +483,11 @@ print("  head 2 output:", out2[q])
 ```
 
     Object head - attention from he-is?
-      Crow           key=[1. 0.]  softmax=0.99
+      Crow           key=[1. 0.]  softmax=1.00
       keep-flight    key=[0. 0.]  softmax=0.00
       swap-speech    key=[0. 0.]  softmax=0.00
       he-is?         key=[0. 0.]  softmax=0.00
-      head 1 output: [0.99 0.  ]
+      head 1 output: [1. 0.]
     
     Action head - attention from he-is?
       Crow           key=[0. 0.]  softmax=0.00
@@ -441,10 +497,41 @@ print("  head 2 output:", out2[q])
       head 2 output: [0.  0.5]
 
 
+
+```python
+import matplotlib.pyplot as plt  # Draws the full attention matrices.
+
+# The full pairwise matrix: every query row against every key column.
+fig, axes = plt.subplots(1, 2, figsize=(11, 4.4))
+for ax, A, title in [(axes[0], A1, "object head"), (axes[1], A2, "action head")]:
+    ax.imshow(A, cmap="Blues", vmin=0, vmax=1)
+    for r in range(len(sentence)):
+        for c in range(len(sentence)):
+            ax.text(c, r, f"{A[r, c]:.2f}", ha="center", va="center",
+                    color="white" if A[r, c] > 0.6 else "black")
+    ax.set_xticks(range(len(sentence)), sentence, rotation=30)
+    ax.set_yticks(range(len(sentence)), sentence)
+    ax.set(title=f"{title}: softmax of the scores", xlabel="keys (answer)", ylabel="queries (ask)")
+    ax.add_patch(plt.Rectangle((-0.5, q - 0.5), len(sentence), 1,
+                               fill=False, edgecolor="#c2410c", linewidth=2.5))
+plt.tight_layout()
+plt.show()
+```
+
+
+    
+![png](attention_ann_files/attention_ann_41_0.png)
+    
+
+
+Every cell is a pair score, not one score per word. Only the `he-is?` row asks a question, so only that row focuses. The other rows have all-zero queries, so softmax spreads them evenly (0.25 each); their outputs are not used here.
+
 Two action words split the mass, so head 2 gives `[0, 0.5]`.
 $W_O$ scales by 2 -> `[0, 1]`.
 
-### Concat: 4 bits out
+<img src="https://raw.githubusercontent.com/techaarvam/byom_workshop/main/assets/cues/08_09.svg" alt="Concatenate the heads" height="48">
+
+### 2.11 Concat: 4 bits out
 
 $$\underbrace{[\,1,\ 0\,]}_{\text{head 1}}\ \Vert\ \underbrace{[\,0,\ 1\,]}_{\text{head 2}}=[\,1,\ 0,\ 0,\ 1\,]$$
 
@@ -462,14 +549,16 @@ for name, val in zip(bit_labels[:4], final):
     print(f"  {name:12} {val:.0f}")
 ```
 
-    concat         [0.99 0.   0.   0.5 ]
-    after W_O      [0.99 0.   0.   1.  ]
+    concat         [1.  0.  0.  0.5]
+    after W_O      [1. 0. 0. 1.]
     
       can fly      1
       can speak    0
       swap flight  0
       swap speech  1
 
+
+<img src="https://raw.githubusercontent.com/techaarvam/byom_workshop/main/assets/cues/08_10.svg" alt="Attention output into the ANN" height="48">
 
 Hand-built weights pulled the object attributes and the
 correction attributes into 4 bits.
@@ -495,6 +584,8 @@ print("object out:", apply_correction(attributes_to_word[obj_in], correction))
 
 
 ---
+
+<img src="https://raw.githubusercontent.com/techaarvam/byom_workshop/main/assets/techaarvam_logo.png" alt="Tech Aarvam - Dream Build Inspire" width="140">
 
 ### About this file
 

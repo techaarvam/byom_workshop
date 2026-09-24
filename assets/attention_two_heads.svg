@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="860" viewBox="0 0 1180 860" role="img" aria-labelledby="title desc">
+  <title id="title">Two heads at a glance</title>
+  <desc id="desc">For two sentences, the QK-transpose score grid of each head: rows are queries, columns are keys. In the object head only the cell he-is? by the object word is bright; in the action head the cells he-is? by the two action words are bright. The bright cells pull out the payload bits: the object attributes and the correction. The four output bits are shown with the corrected object.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#2563a8"/></marker>
+    <style>.title{font:700 26px system-ui,sans-serif;fill:#17243a}.bt{font:700 19px system-ui,sans-serif;fill:#17243a}.lab{font:15px system-ui,sans-serif;fill:#35445a}.num{font:700 15px system-ui,sans-serif}.small{font:15px system-ui,sans-serif;fill:#35445a}.bits{font:700 18px ui-monospace,monospace;fill:#17243a}.res{font:700 19px system-ui,sans-serif;fill:#1f7a4d}</style>
+  </defs>
+  <rect width="1180" height="860" rx="24" fill="#f8fafc"/>
+  <text x="590.0" y="44" text-anchor="middle" class="title">Two heads at a glance: rows ask (queries), columns answer (keys)</text>
+  <text x="30" y="106" class="bt">“Crow keep-flight swap-speech he-is?”</text>
+  <text x="230" y="142" text-anchor="middle" class="bt">object head: are you an object?</text>
+  <text transform="translate(174.0 212) rotate(-40)" class="lab">Crow</text>
+  <text transform="translate(214.0 212) rotate(-40)" class="lab">keep-flight</text>
+  <text transform="translate(254.0 212) rotate(-40)" class="lab">swap-speech</text>
+  <text transform="translate(294.0 212) rotate(-40)" class="lab">he-is?</text>
+  <text x="142" y="246" text-anchor="end" class="lab">Crow</text>
+  <rect x="150" y="220" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="169.0" y="245" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="190" y="220" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="209.0" y="245" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="230" y="220" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="249.0" y="245" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="270" y="220" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="289.0" y="245" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <text x="142" y="286" text-anchor="end" class="lab">keep-flight</text>
+  <rect x="150" y="260" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="169.0" y="285" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="190" y="260" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="209.0" y="285" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="230" y="260" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="249.0" y="285" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="270" y="260" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="289.0" y="285" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <text x="142" y="326" text-anchor="end" class="lab">swap-speech</text>
+  <rect x="150" y="300" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="169.0" y="325" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="190" y="300" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="209.0" y="325" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="230" y="300" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="249.0" y="325" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="270" y="300" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="289.0" y="325" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <text x="142" y="366" text-anchor="end" class="lab">he-is?</text>
+  <rect x="150" y="340" width="38" height="38" rx="4" fill="#2563eb"/>
+  <text x="169.0" y="365" text-anchor="middle" class="num" fill="#fff">8</text>
+  <rect x="190" y="340" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="209.0" y="365" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="230" y="340" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="249.0" y="365" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="270" y="340" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="289.0" y="365" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="148" y="338" width="162" height="42" rx="5" fill="none" stroke="#c2410c" stroke-width="2.5"/>
+  <text x="230" y="406" text-anchor="middle" class="small">Crow sends [1 0]: fly, speak</text>
+  <text x="610" y="142" text-anchor="middle" class="bt">action head: are you an action?</text>
+  <text transform="translate(554.0 212) rotate(-40)" class="lab">Crow</text>
+  <text transform="translate(594.0 212) rotate(-40)" class="lab">keep-flight</text>
+  <text transform="translate(634.0 212) rotate(-40)" class="lab">swap-speech</text>
+  <text transform="translate(674.0 212) rotate(-40)" class="lab">he-is?</text>
+  <text x="522" y="246" text-anchor="end" class="lab">Crow</text>
+  <rect x="530" y="220" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="549.0" y="245" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="570" y="220" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="589.0" y="245" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="610" y="220" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="629.0" y="245" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="650" y="220" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="669.0" y="245" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <text x="522" y="286" text-anchor="end" class="lab">keep-flight</text>
+  <rect x="530" y="260" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="549.0" y="285" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="570" y="260" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="589.0" y="285" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="610" y="260" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="629.0" y="285" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="650" y="260" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="669.0" y="285" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <text x="522" y="326" text-anchor="end" class="lab">swap-speech</text>
+  <rect x="530" y="300" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="549.0" y="325" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="570" y="300" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="589.0" y="325" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="610" y="300" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="629.0" y="325" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="650" y="300" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="669.0" y="325" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <text x="522" y="366" text-anchor="end" class="lab">he-is?</text>
+  <rect x="530" y="340" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="549.0" y="365" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="570" y="340" width="38" height="38" rx="4" fill="#2563eb"/>
+  <text x="589.0" y="365" text-anchor="middle" class="num" fill="#fff">8</text>
+  <rect x="610" y="340" width="38" height="38" rx="4" fill="#2563eb"/>
+  <text x="629.0" y="365" text-anchor="middle" class="num" fill="#fff">8</text>
+  <rect x="650" y="340" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="669.0" y="365" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="528" y="338" width="162" height="42" rx="5" fill="none" stroke="#c2410c" stroke-width="2.5"/>
+  <text x="610" y="406" text-anchor="middle" class="small">keep-flight sends [0 0], swap-speech [0 1]</text>
+  <path d="M800 300 L844 300" stroke="#2563a8" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="954" y="240" text-anchor="middle" class="bt">4 bits out</text>
+  <rect x="850" y="270" width="48" height="56" rx="8" fill="#FFEDD5" stroke="#64748b" stroke-width="1.5"/>
+  <text x="874" y="306" text-anchor="middle" class="bits">1</text>
+  <text x="874" y="346" text-anchor="middle" class="small">fly</text>
+  <rect x="902" y="270" width="48" height="56" rx="8" fill="#FFEDD5" stroke="#64748b" stroke-width="1.5"/>
+  <text x="926" y="306" text-anchor="middle" class="bits">0</text>
+  <text x="926" y="346" text-anchor="middle" class="small">speak</text>
+  <rect x="954" y="270" width="48" height="56" rx="8" fill="#DCEBFA" stroke="#64748b" stroke-width="1.5"/>
+  <text x="978" y="306" text-anchor="middle" class="bits">0</text>
+  <text x="978" y="346" text-anchor="middle" class="small">swF</text>
+  <rect x="1006" y="270" width="48" height="56" rx="8" fill="#DCEBFA" stroke="#64748b" stroke-width="1.5"/>
+  <text x="1030" y="306" text-anchor="middle" class="bits">1</text>
+  <text x="1030" y="346" text-anchor="middle" class="small">swS</text>
+  <text x="954" y="390" text-anchor="middle" class="res">Crow, swap speech → Flying superhero</text>
+  <line x1="30" y1="460" x2="1150" y2="460" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="30" y="496" class="bt">“Flying superhero swap-flight keep-speech he-is?”</text>
+  <text x="230" y="532" text-anchor="middle" class="bt">object head: are you an object?</text>
+  <text transform="translate(174.0 602) rotate(-40)" class="lab">F. superhero</text>
+  <text transform="translate(214.0 602) rotate(-40)" class="lab">swap-flight</text>
+  <text transform="translate(254.0 602) rotate(-40)" class="lab">keep-speech</text>
+  <text transform="translate(294.0 602) rotate(-40)" class="lab">he-is?</text>
+  <text x="142" y="636" text-anchor="end" class="lab">F. superhero</text>
+  <rect x="150" y="610" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="169.0" y="635" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="190" y="610" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="209.0" y="635" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="230" y="610" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="249.0" y="635" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="270" y="610" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="289.0" y="635" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <text x="142" y="676" text-anchor="end" class="lab">swap-flight</text>
+  <rect x="150" y="650" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="169.0" y="675" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="190" y="650" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="209.0" y="675" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="230" y="650" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="249.0" y="675" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="270" y="650" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="289.0" y="675" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <text x="142" y="716" text-anchor="end" class="lab">keep-speech</text>
+  <rect x="150" y="690" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="169.0" y="715" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="190" y="690" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="209.0" y="715" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="230" y="690" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="249.0" y="715" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="270" y="690" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="289.0" y="715" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <text x="142" y="756" text-anchor="end" class="lab">he-is?</text>
+  <rect x="150" y="730" width="38" height="38" rx="4" fill="#2563eb"/>
+  <text x="169.0" y="755" text-anchor="middle" class="num" fill="#fff">8</text>
+  <rect x="190" y="730" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="209.0" y="755" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="230" y="730" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="249.0" y="755" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="270" y="730" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="289.0" y="755" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="148" y="728" width="162" height="42" rx="5" fill="none" stroke="#c2410c" stroke-width="2.5"/>
+  <text x="230" y="796" text-anchor="middle" class="small">F. superhero sends [1 1]: fly, speak</text>
+  <text x="610" y="532" text-anchor="middle" class="bt">action head: are you an action?</text>
+  <text transform="translate(554.0 602) rotate(-40)" class="lab">F. superhero</text>
+  <text transform="translate(594.0 602) rotate(-40)" class="lab">swap-flight</text>
+  <text transform="translate(634.0 602) rotate(-40)" class="lab">keep-speech</text>
+  <text transform="translate(674.0 602) rotate(-40)" class="lab">he-is?</text>
+  <text x="522" y="636" text-anchor="end" class="lab">F. superhero</text>
+  <rect x="530" y="610" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="549.0" y="635" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="570" y="610" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="589.0" y="635" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="610" y="610" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="629.0" y="635" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="650" y="610" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="669.0" y="635" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <text x="522" y="676" text-anchor="end" class="lab">swap-flight</text>
+  <rect x="530" y="650" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="549.0" y="675" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="570" y="650" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="589.0" y="675" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="610" y="650" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="629.0" y="675" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="650" y="650" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="669.0" y="675" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <text x="522" y="716" text-anchor="end" class="lab">keep-speech</text>
+  <rect x="530" y="690" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="549.0" y="715" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="570" y="690" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="589.0" y="715" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="610" y="690" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="629.0" y="715" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="650" y="690" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="669.0" y="715" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <text x="522" y="756" text-anchor="end" class="lab">he-is?</text>
+  <rect x="530" y="730" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="549.0" y="755" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="570" y="730" width="38" height="38" rx="4" fill="#2563eb"/>
+  <text x="589.0" y="755" text-anchor="middle" class="num" fill="#fff">8</text>
+  <rect x="610" y="730" width="38" height="38" rx="4" fill="#2563eb"/>
+  <text x="629.0" y="755" text-anchor="middle" class="num" fill="#fff">8</text>
+  <rect x="650" y="730" width="38" height="38" rx="4" fill="#f1f5f9"/>
+  <text x="669.0" y="755" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="528" y="728" width="162" height="42" rx="5" fill="none" stroke="#c2410c" stroke-width="2.5"/>
+  <text x="610" y="796" text-anchor="middle" class="small">swap-flight sends [1 0], keep-speech [0 0]</text>
+  <path d="M800 690 L844 690" stroke="#2563a8" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="954" y="630" text-anchor="middle" class="bt">4 bits out</text>
+  <rect x="850" y="660" width="48" height="56" rx="8" fill="#FFEDD5" stroke="#64748b" stroke-width="1.5"/>
+  <text x="874" y="696" text-anchor="middle" class="bits">1</text>
+  <text x="874" y="736" text-anchor="middle" class="small">fly</text>
+  <rect x="902" y="660" width="48" height="56" rx="8" fill="#FFEDD5" stroke="#64748b" stroke-width="1.5"/>
+  <text x="926" y="696" text-anchor="middle" class="bits">1</text>
+  <text x="926" y="736" text-anchor="middle" class="small">speak</text>
+  <rect x="954" y="660" width="48" height="56" rx="8" fill="#DCEBFA" stroke="#64748b" stroke-width="1.5"/>
+  <text x="978" y="696" text-anchor="middle" class="bits">1</text>
+  <text x="978" y="736" text-anchor="middle" class="small">swF</text>
+  <rect x="1006" y="660" width="48" height="56" rx="8" fill="#DCEBFA" stroke="#64748b" stroke-width="1.5"/>
+  <text x="1030" y="696" text-anchor="middle" class="bits">0</text>
+  <text x="1030" y="736" text-anchor="middle" class="small">swS</text>
+  <text x="954" y="780" text-anchor="middle" class="res">Flying superhero, swap flight → Human</text>
+</svg>

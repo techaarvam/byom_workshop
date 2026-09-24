@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="441" height="72" viewBox="0 0 441 72" role="img" aria-label="The model at a glance">
+  <title>The model at a glance</title>
+  <rect x="1" y="1" width="439" height="70" rx="35" fill="#eef4fb" stroke="#2563a8" stroke-width="2"/>
+  <circle cx="36" cy="36" r="27" fill="#2563a8"/>
+  <g transform="translate(12 12)"><path fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M24 8l16 8-16 8-16-8z"/><path fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M8 24l16 8 16-8M8 32l16 8 16-8"/></g>
+  <text x="80" y="45" font-family="system-ui, sans-serif" font-size="27" font-weight="700" fill="#17243a">The model at a glance</text>
+</svg>

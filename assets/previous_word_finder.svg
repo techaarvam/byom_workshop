@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="520" viewBox="0 0 1060 520" role="img" aria-labelledby="title desc">
+  <title id="title">Disobey position finder: every word looks at the word just before it</title>
+  <desc id="desc">A 5 by 5 grid for Crow disobeys keep-flight swap-speech he-is?. Row p is the word at position p; its query says &#x27;position p minus 1&#x27;. Column j is the word at position j; its key says &#x27;position j&#x27;. The match is 1 only on the cells just left of the diagonal. The value of each word is 1 if it is disobeys. So each word receives the value of the word before it: keep-flight receives 1, the others 0.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#2563a8"/></marker><style>.title{font:700 26px system-ui,sans-serif;fill:#17243a}.bt{font:700 18px system-ui,sans-serif;fill:#17243a}.chip{font:700 18px system-ui,sans-serif}.small{font:16px system-ui,sans-serif;fill:#35445a}.res{font:700 20px system-ui,sans-serif;fill:#1f7a4d}.num{font:700 16px system-ui,sans-serif}.note{font:600 16px system-ui,sans-serif;fill:#c2410c}.grey{font:16px system-ui,sans-serif;fill:#94a3b8}</style></defs>
+  <rect width="1060" height="520" rx="24" fill="#f8fafc"/>
+  <text x="530.0" y="40" text-anchor="middle" class="title">Disobey position finder: every word looks at the word just before it</text>
+  <text x="530.0" y="70" text-anchor="middle" class="small">query of the word at position p: “I want position p − 1”</text>
+  <text x="530.0" y="92" text-anchor="middle" class="small">key of the word at position j: “I am position j”</text>
+  <text transform="translate(357.0 190) rotate(-40)" class="small">0: Crow</text>
+  <text transform="translate(403.0 190) rotate(-40)" class="small">1: disobeys</text>
+  <text transform="translate(449.0 190) rotate(-40)" class="small">2: keep-flight</text>
+  <text transform="translate(495.0 190) rotate(-40)" class="small">3: swap-speech</text>
+  <text transform="translate(541.0 190) rotate(-40)" class="small">4: he-is?</text>
+  <text x="320" y="229" text-anchor="end" class="small">0: Crow asks for –</text>
+  <rect x="330" y="200" width="43" height="43" rx="5" fill="#f1f5f9"/>
+  <text x="352.0" y="228" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="376" y="200" width="43" height="43" rx="5" fill="#f1f5f9"/>
+  <text x="398.0" y="228" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="422" y="200" width="43" height="43" rx="5" fill="#f1f5f9"/>
+  <text x="444.0" y="228" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="468" y="200" width="43" height="43" rx="5" fill="#f1f5f9"/>
+  <text x="490.0" y="228" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="514" y="200" width="43" height="43" rx="5" fill="#f1f5f9"/>
+  <text x="536.0" y="228" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <path d="M568 221 L608 221" stroke="#2563a8" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="618" y="227" class="grey">no word before it</text>
+  <text x="320" y="275" text-anchor="end" class="small">1: disobeys asks for 0</text>
+  <rect x="330" y="246" width="43" height="43" rx="5" fill="#2563eb"/>
+  <text x="352.0" y="274" text-anchor="middle" class="num" fill="#fff">1</text>
+  <rect x="376" y="246" width="43" height="43" rx="5" fill="#f1f5f9"/>
+  <text x="398.0" y="274" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="422" y="246" width="43" height="43" rx="5" fill="#f1f5f9"/>
+  <text x="444.0" y="274" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="468" y="246" width="43" height="43" rx="5" fill="#f1f5f9"/>
+  <text x="490.0" y="274" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="514" y="246" width="43" height="43" rx="5" fill="#f1f5f9"/>
+  <text x="536.0" y="274" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <path d="M568 267 L608 267" stroke="#2563a8" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="618" y="273" class="small">gets 0  (the word before is not disobeys)</text>
+  <text x="320" y="321" text-anchor="end" class="small">2: keep-flight asks for 1</text>
+  <rect x="330" y="292" width="43" height="43" rx="5" fill="#f1f5f9"/>
+  <text x="352.0" y="320" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="376" y="292" width="43" height="43" rx="5" fill="#2563eb"/>
+  <text x="398.0" y="320" text-anchor="middle" class="num" fill="#fff">1</text>
+  <rect x="422" y="292" width="43" height="43" rx="5" fill="#f1f5f9"/>
+  <text x="444.0" y="320" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="468" y="292" width="43" height="43" rx="5" fill="#f1f5f9"/>
+  <text x="490.0" y="320" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="514" y="292" width="43" height="43" rx="5" fill="#f1f5f9"/>
+  <text x="536.0" y="320" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <path d="M568 313 L608 313" stroke="#2563a8" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="618" y="319" class="res">gets 1  (the word before is disobeys)</text>
+  <text x="320" y="367" text-anchor="end" class="small">3: swap-speech asks for 2</text>
+  <rect x="330" y="338" width="43" height="43" rx="5" fill="#f1f5f9"/>
+  <text x="352.0" y="366" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="376" y="338" width="43" height="43" rx="5" fill="#f1f5f9"/>
+  <text x="398.0" y="366" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="422" y="338" width="43" height="43" rx="5" fill="#2563eb"/>
+  <text x="444.0" y="366" text-anchor="middle" class="num" fill="#fff">1</text>
+  <rect x="468" y="338" width="43" height="43" rx="5" fill="#f1f5f9"/>
+  <text x="490.0" y="366" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="514" y="338" width="43" height="43" rx="5" fill="#f1f5f9"/>
+  <text x="536.0" y="366" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <path d="M568 359 L608 359" stroke="#2563a8" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="618" y="365" class="small">gets 0  (the word before is not disobeys)</text>
+  <text x="320" y="413" text-anchor="end" class="small">4: he-is? asks for 3</text>
+  <rect x="330" y="384" width="43" height="43" rx="5" fill="#f1f5f9"/>
+  <text x="352.0" y="412" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="376" y="384" width="43" height="43" rx="5" fill="#f1f5f9"/>
+  <text x="398.0" y="412" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="422" y="384" width="43" height="43" rx="5" fill="#f1f5f9"/>
+  <text x="444.0" y="412" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <rect x="468" y="384" width="43" height="43" rx="5" fill="#2563eb"/>
+  <text x="490.0" y="412" text-anchor="middle" class="num" fill="#fff">1</text>
+  <rect x="514" y="384" width="43" height="43" rx="5" fill="#f1f5f9"/>
+  <text x="536.0" y="412" text-anchor="middle" class="num" fill="#94a3b8">0</text>
+  <path d="M568 405 L608 405" stroke="#2563a8" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="618" y="411" class="small">gets 0  (the word before is not disobeys)</text>
+  <text x="445.0" y="460" text-anchor="middle" class="small">score = query · key: 1 only where key = p − 1</text>
+  <text x="445.0" y="484" text-anchor="middle" class="small">value of each word: 1 if it is disobeys, else 0</text>
+</svg>

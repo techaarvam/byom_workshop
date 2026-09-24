@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="564" height="72" viewBox="0 0 564 72" role="img" aria-label="Attention output into the ANN">
+  <title>Attention output into the ANN</title>
+  <rect x="1" y="1" width="562" height="70" rx="35" fill="#eef4fb" stroke="#2563a8" stroke-width="2"/>
+  <circle cx="36" cy="36" r="27" fill="#2563a8"/>
+  <g transform="translate(12 12)"><path fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M18 30c-4-3-6-7-6-11a12 12 0 0 1 24 0c0 4-2 8-6 11v4H18z"/><path fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M19 40h10"/></g>
+  <text x="80" y="45" font-family="system-ui, sans-serif" font-size="27" font-weight="700" fill="#17243a">Attention output into the ANN</text>
+</svg>

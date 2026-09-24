@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="406" height="72" viewBox="0 0 406 72" role="img" aria-label="Hand-written heads">
+  <title>Hand-written heads</title>
+  <rect x="1" y="1" width="404" height="70" rx="35" fill="#eef4fb" stroke="#2563a8" stroke-width="2"/>
+  <circle cx="36" cy="36" r="27" fill="#2563a8"/>
+  <g transform="translate(12 12)"><circle fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" cx="12" cy="24" r="5"/><circle fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" cx="36" cy="14" r="5"/><circle fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" cx="36" cy="34" r="5"/><path fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M17 22l14-6M17 26l14 6"/></g>
+  <text x="80" y="45" font-family="system-ui, sans-serif" font-size="27" font-weight="700" fill="#17243a">Hand-written heads</text>
+</svg>

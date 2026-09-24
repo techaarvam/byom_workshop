@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="560" viewBox="0 0 1180 560" role="img" aria-labelledby="title desc">
+  <title id="title">Previous-word finder, one token at a time</title>
+  <desc id="desc">Sentence: is okay disobeys keep-speech. W_Q shifts each position one-hot to the previous position; K is the identity; V is the disobey bit 0 0 1 0. For each token: position one-hot times W_Q gives the previous position, dot K gives a single score of 1 at that position, times V gives the disobey bit of the previous word: is gives nothing, okay 0, disobeys 0, keep-speech 1.</desc>
+  <defs><style>.title{font:700 26px system-ui,sans-serif;fill:#17243a}.bt{font:700 18px system-ui,sans-serif;fill:#17243a}.lab{font:15px system-ui,sans-serif;fill:#35445a}.num{font:700 15px ui-monospace,monospace}.op{font:700 22px system-ui,sans-serif;fill:#35445a}.res{font:700 17px system-ui,sans-serif;fill:#1f7a4d}.grey{font:15px system-ui,sans-serif;fill:#94a3b8}</style></defs>
+  <rect width="1180" height="560" rx="24" fill="#f8fafc"/>
+  <text x="590.0" y="42" text-anchor="middle" class="title">Previous-word finder, one token at a time</text>
+  <text x="230" y="88" text-anchor="middle" class="bt">W_Q</text>
+  <rect x="170" y="100" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="184.0" y="120" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="200" y="100" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="214.0" y="120" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="230" y="100" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="244.0" y="120" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="260" y="100" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="274.0" y="120" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="170" y="130" width="28" height="28" rx="4" fill="#2563eb" stroke="#94a3b8"/>
+  <text x="184.0" y="150" text-anchor="middle" class="num" fill="#fff">1</text>
+  <rect x="200" y="130" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="214.0" y="150" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="230" y="130" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="244.0" y="150" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="260" y="130" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="274.0" y="150" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="170" y="160" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="184.0" y="180" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="200" y="160" width="28" height="28" rx="4" fill="#2563eb" stroke="#94a3b8"/>
+  <text x="214.0" y="180" text-anchor="middle" class="num" fill="#fff">1</text>
+  <rect x="230" y="160" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="244.0" y="180" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="260" y="160" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="274.0" y="180" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="170" y="190" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="184.0" y="210" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="200" y="190" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="214.0" y="210" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="230" y="190" width="28" height="28" rx="4" fill="#2563eb" stroke="#94a3b8"/>
+  <text x="244.0" y="210" text-anchor="middle" class="num" fill="#fff">1</text>
+  <rect x="260" y="190" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="274.0" y="210" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <text x="230" y="240" text-anchor="middle" class="lab">position p → p − 1</text>
+  <text x="530" y="88" text-anchor="middle" class="bt">K</text>
+  <rect x="470" y="100" width="28" height="28" rx="4" fill="#2563eb" stroke="#94a3b8"/>
+  <text x="484.0" y="120" text-anchor="middle" class="num" fill="#fff">1</text>
+  <rect x="500" y="100" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="514.0" y="120" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="530" y="100" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="544.0" y="120" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="560" y="100" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="574.0" y="120" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="470" y="130" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="484.0" y="150" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="500" y="130" width="28" height="28" rx="4" fill="#2563eb" stroke="#94a3b8"/>
+  <text x="514.0" y="150" text-anchor="middle" class="num" fill="#fff">1</text>
+  <rect x="530" y="130" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="544.0" y="150" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="560" y="130" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="574.0" y="150" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="470" y="160" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="484.0" y="180" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="500" y="160" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="514.0" y="180" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="530" y="160" width="28" height="28" rx="4" fill="#2563eb" stroke="#94a3b8"/>
+  <text x="544.0" y="180" text-anchor="middle" class="num" fill="#fff">1</text>
+  <rect x="560" y="160" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="574.0" y="180" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="470" y="190" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="484.0" y="210" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="500" y="190" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="514.0" y="210" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="530" y="190" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="544.0" y="210" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="560" y="190" width="28" height="28" rx="4" fill="#2563eb" stroke="#94a3b8"/>
+  <text x="574.0" y="210" text-anchor="middle" class="num" fill="#fff">1</text>
+  <text x="530" y="240" text-anchor="middle" class="lab">each position answers itself</text>
+  <text x="820" y="88" text-anchor="middle" class="bt">V = disobey bit</text>
+  <text x="800" y="120" text-anchor="end" class="lab">is</text>
+  <rect x="812" y="100" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="826.0" y="120" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <text x="800" y="150" text-anchor="end" class="lab">okay</text>
+  <rect x="812" y="130" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="826.0" y="150" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <text x="800" y="180" text-anchor="end" class="lab">disobeys</text>
+  <rect x="812" y="160" width="28" height="28" rx="4" fill="#c2410c" stroke="#94a3b8"/>
+  <text x="826.0" y="180" text-anchor="middle" class="num" fill="#fff">1</text>
+  <text x="800" y="210" text-anchor="end" class="lab">keep-speech</text>
+  <rect x="812" y="190" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="826.0" y="210" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <line x1="30" y1="270" x2="1150" y2="270" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="230" y="300" text-anchor="middle" class="lab">position (one-hot)</text>
+  <text x="430" y="300" text-anchor="middle" class="lab">query = x · W_Q</text>
+  <text x="650" y="300" text-anchor="middle" class="lab">score = q · K</text>
+  <text x="845.0" y="300" text-anchor="middle" class="lab">output = score · V</text>
+  <text x="150" y="338" text-anchor="end" class="bt">is</text>
+  <rect x="170" y="318" width="28" height="28" rx="4" fill="#2563eb" stroke="#94a3b8"/>
+  <text x="184.0" y="338" text-anchor="middle" class="num" fill="#fff">1</text>
+  <rect x="200" y="318" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="214.0" y="338" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="230" y="318" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="244.0" y="338" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="260" y="318" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="274.0" y="338" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <text x="330" y="340" text-anchor="middle" class="op">→</text>
+  <rect x="370" y="318" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="384.0" y="338" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="400" y="318" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="414.0" y="338" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="430" y="318" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="444.0" y="338" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="460" y="318" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="474.0" y="338" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <text x="535" y="340" text-anchor="middle" class="op">→</text>
+  <rect x="590" y="318" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="604.0" y="338" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="620" y="318" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="634.0" y="338" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="650" y="318" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="664.0" y="338" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="680" y="318" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="694.0" y="338" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <text x="760" y="340" text-anchor="middle" class="op">→</text>
+  <text x="830" y="338" class="grey">– (no previous word)</text>
+  <text x="150" y="394" text-anchor="end" class="bt">okay</text>
+  <rect x="170" y="374" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="184.0" y="394" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="200" y="374" width="28" height="28" rx="4" fill="#2563eb" stroke="#94a3b8"/>
+  <text x="214.0" y="394" text-anchor="middle" class="num" fill="#fff">1</text>
+  <rect x="230" y="374" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="244.0" y="394" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="260" y="374" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="274.0" y="394" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <text x="330" y="396" text-anchor="middle" class="op">→</text>
+  <rect x="370" y="374" width="28" height="28" rx="4" fill="#2563eb" stroke="#94a3b8"/>
+  <text x="384.0" y="394" text-anchor="middle" class="num" fill="#fff">1</text>
+  <rect x="400" y="374" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="414.0" y="394" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="430" y="374" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="444.0" y="394" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="460" y="374" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="474.0" y="394" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <text x="535" y="396" text-anchor="middle" class="op">→</text>
+  <rect x="590" y="374" width="28" height="28" rx="4" fill="#2563eb" stroke="#94a3b8"/>
+  <text x="604.0" y="394" text-anchor="middle" class="num" fill="#fff">1</text>
+  <rect x="620" y="374" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="634.0" y="394" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="650" y="374" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="664.0" y="394" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="680" y="374" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="694.0" y="394" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <text x="760" y="396" text-anchor="middle" class="op">→</text>
+  <rect x="830" y="374" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="844.0" y="394" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <text x="876" y="394" class="lab">from is</text>
+  <text x="150" y="450" text-anchor="end" class="bt">disobeys</text>
+  <rect x="170" y="430" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="184.0" y="450" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="200" y="430" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="214.0" y="450" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="230" y="430" width="28" height="28" rx="4" fill="#2563eb" stroke="#94a3b8"/>
+  <text x="244.0" y="450" text-anchor="middle" class="num" fill="#fff">1</text>
+  <rect x="260" y="430" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="274.0" y="450" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <text x="330" y="452" text-anchor="middle" class="op">→</text>
+  <rect x="370" y="430" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="384.0" y="450" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="400" y="430" width="28" height="28" rx="4" fill="#2563eb" stroke="#94a3b8"/>
+  <text x="414.0" y="450" text-anchor="middle" class="num" fill="#fff">1</text>
+  <rect x="430" y="430" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="444.0" y="450" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="460" y="430" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="474.0" y="450" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <text x="535" y="452" text-anchor="middle" class="op">→</text>
+  <rect x="590" y="430" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="604.0" y="450" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="620" y="430" width="28" height="28" rx="4" fill="#2563eb" stroke="#94a3b8"/>
+  <text x="634.0" y="450" text-anchor="middle" class="num" fill="#fff">1</text>
+  <rect x="650" y="430" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="664.0" y="450" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="680" y="430" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="694.0" y="450" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <text x="760" y="452" text-anchor="middle" class="op">→</text>
+  <rect x="830" y="430" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="844.0" y="450" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <text x="876" y="450" class="lab">from okay</text>
+  <text x="150" y="506" text-anchor="end" class="bt">keep-speech</text>
+  <rect x="170" y="486" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="184.0" y="506" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="200" y="486" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="214.0" y="506" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="230" y="486" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="244.0" y="506" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="260" y="486" width="28" height="28" rx="4" fill="#2563eb" stroke="#94a3b8"/>
+  <text x="274.0" y="506" text-anchor="middle" class="num" fill="#fff">1</text>
+  <text x="330" y="508" text-anchor="middle" class="op">→</text>
+  <rect x="370" y="486" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="384.0" y="506" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="400" y="486" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="414.0" y="506" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="430" y="486" width="28" height="28" rx="4" fill="#2563eb" stroke="#94a3b8"/>
+  <text x="444.0" y="506" text-anchor="middle" class="num" fill="#fff">1</text>
+  <rect x="460" y="486" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="474.0" y="506" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <text x="535" y="508" text-anchor="middle" class="op">→</text>
+  <rect x="590" y="486" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="604.0" y="506" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="620" y="486" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="634.0" y="506" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <rect x="650" y="486" width="28" height="28" rx="4" fill="#2563eb" stroke="#94a3b8"/>
+  <text x="664.0" y="506" text-anchor="middle" class="num" fill="#fff">1</text>
+  <rect x="680" y="486" width="28" height="28" rx="4" fill="#fff" stroke="#94a3b8"/>
+  <text x="694.0" y="506" text-anchor="middle" class="num" fill="#64748b">0</text>
+  <text x="760" y="508" text-anchor="middle" class="op">→</text>
+  <rect x="830" y="486" width="28" height="28" rx="4" fill="#c2410c" stroke="#94a3b8"/>
+  <text x="844.0" y="506" text-anchor="middle" class="num" fill="#fff">1</text>
+  <text x="876" y="506" class="res">from disobeys ✓</text>
+</svg>

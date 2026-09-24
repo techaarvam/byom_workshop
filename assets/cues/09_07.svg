@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="308" height="72" viewBox="0 0 308 72" role="img" aria-label="Forward pass">
+  <title>Forward pass</title>
+  <rect x="1" y="1" width="306" height="70" rx="35" fill="#eef4fb" stroke="#2563a8" stroke-width="2"/>
+  <circle cx="36" cy="36" r="27" fill="#2563a8"/>
+  <g transform="translate(12 12)"><circle fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" cx="24" cy="24" r="15"/><path fill="#fff" d="M20 16l12 8-12 8z"/></g>
+  <text x="80" y="45" font-family="system-ui, sans-serif" font-size="27" font-weight="700" fill="#17243a">Forward pass</text>
+</svg>

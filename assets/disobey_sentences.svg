@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="350" viewBox="0 0 1100 350" role="img" aria-labelledby="title desc">
+  <title id="title">One word, disobeys, makes word order matter</title>
+  <desc id="desc">Crow keep-flight swap-speech he-is? gives Flying superhero. Crow disobeys keep-flight swap-speech he-is? gives Human. Crow keep-flight disobeys swap-speech he-is? gives Crow. The same words in a different order give a different answer.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#2563a8"/></marker><style>.title{font:700 26px system-ui,sans-serif;fill:#17243a}.bt{font:700 18px system-ui,sans-serif;fill:#17243a}.chip{font:700 18px system-ui,sans-serif}.small{font:16px system-ui,sans-serif;fill:#35445a}.res{font:700 20px system-ui,sans-serif;fill:#1f7a4d}.num{font:700 16px system-ui,sans-serif}.note{font:600 16px system-ui,sans-serif;fill:#c2410c}.grey{font:16px system-ui,sans-serif;fill:#94a3b8}</style></defs>
+  <rect width="1100" height="350" rx="24" fill="#f8fafc"/>
+  <text x="550.0" y="44" text-anchor="middle" class="title">One word, disobeys, makes word order matter</text>
+  <text x="30" y="118" class="small">From 08</text>
+  <rect x="290" y="90" width="77" height="40" rx="20" fill="#fff" stroke="#64748b" stroke-width="2"/>
+  <text x="329" y="117" text-anchor="middle" class="chip" fill="#17243a">Crow</text>
+  <rect x="377.0625" y="90" width="136" height="40" rx="20" fill="#fff" stroke="#64748b" stroke-width="2"/>
+  <text x="445" y="117" text-anchor="middle" class="chip" fill="#17243a">keep-flight</text>
+  <rect x="523.140625" y="90" width="157" height="40" rx="20" fill="#fff" stroke="#64748b" stroke-width="2"/>
+  <text x="602" y="117" text-anchor="middle" class="chip" fill="#17243a">swap-speech</text>
+  <rect x="690.484375" y="90" width="86" height="40" rx="20" fill="#fff" stroke="#64748b" stroke-width="2"/>
+  <text x="733" y="117" text-anchor="middle" class="chip" fill="#17243a">he-is?</text>
+  <path d="M790 110 L830 110" stroke="#2563a8" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="840" y="117" class="res">Flying superhero</text>
+  <text x="30" y="198" class="small">disobeys before keep-flight</text>
+  <rect x="290" y="170" width="77" height="40" rx="20" fill="#fff" stroke="#64748b" stroke-width="2"/>
+  <text x="329" y="197" text-anchor="middle" class="chip" fill="#17243a">Crow</text>
+  <rect x="377.0625" y="170" width="116" height="40" rx="20" fill="#c2410c" stroke="#9a3412" stroke-width="2"/>
+  <text x="435" y="197" text-anchor="middle" class="chip" fill="#fff">disobeys</text>
+  <rect x="502.75" y="170" width="136" height="40" rx="20" fill="#fff" stroke="#64748b" stroke-width="2"/>
+  <text x="571" y="197" text-anchor="middle" class="chip" fill="#17243a">keep-flight</text>
+  <rect x="648.828125" y="170" width="157" height="40" rx="20" fill="#fff" stroke="#64748b" stroke-width="2"/>
+  <text x="728" y="197" text-anchor="middle" class="chip" fill="#17243a">swap-speech</text>
+  <rect x="816.171875" y="170" width="86" height="40" rx="20" fill="#fff" stroke="#64748b" stroke-width="2"/>
+  <text x="859" y="197" text-anchor="middle" class="chip" fill="#17243a">he-is?</text>
+  <path d="M916 190 L956 190" stroke="#2563a8" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="966" y="197" class="res">Human</text>
+  <text x="30" y="278" class="small">disobeys before swap-speech</text>
+  <rect x="290" y="250" width="77" height="40" rx="20" fill="#fff" stroke="#64748b" stroke-width="2"/>
+  <text x="329" y="277" text-anchor="middle" class="chip" fill="#17243a">Crow</text>
+  <rect x="377.0625" y="250" width="136" height="40" rx="20" fill="#fff" stroke="#64748b" stroke-width="2"/>
+  <text x="445" y="277" text-anchor="middle" class="chip" fill="#17243a">keep-flight</text>
+  <rect x="523.140625" y="250" width="116" height="40" rx="20" fill="#c2410c" stroke="#9a3412" stroke-width="2"/>
+  <text x="581" y="277" text-anchor="middle" class="chip" fill="#fff">disobeys</text>
+  <rect x="648.828125" y="250" width="157" height="40" rx="20" fill="#fff" stroke="#64748b" stroke-width="2"/>
+  <text x="728" y="277" text-anchor="middle" class="chip" fill="#17243a">swap-speech</text>
+  <rect x="816.171875" y="250" width="86" height="40" rx="20" fill="#fff" stroke="#64748b" stroke-width="2"/>
+  <text x="859" y="277" text-anchor="middle" class="chip" fill="#17243a">he-is?</text>
+  <path d="M916 270 L956 270" stroke="#2563a8" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="966" y="277" class="res">Crow</text>
+  <text x="550.0" y="330" text-anchor="middle" class="note">disobeys flips the meaning of the word right after it: keep ↔ swap</text>
+</svg>
